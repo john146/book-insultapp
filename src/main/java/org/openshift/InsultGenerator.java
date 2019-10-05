@@ -20,8 +20,7 @@ public class InsultGenerator {
 			String password = System.getenv("PGPASSWORD");
 			Connection connecton = DriverManager.getConnection(databaseURL, username, password);
 			if (connecton != null) {
-				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a, 
-						long_adjective b, noun c ORDER BY random() limit 1";
+				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a, long_adjective b, noun c ORDER BY random() limit 1";
 				Statement stmt = connecton.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
